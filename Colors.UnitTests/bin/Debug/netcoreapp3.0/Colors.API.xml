@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Colors.API</name>
+    </assembly>
+    <members>
+        <member name="M:Colors.API.Controllers.ColorsController.GetArgb(System.String)">
+             <summary>
+                 Get the color object from a HEX color format.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/colors/00FF00/argb
+            
+             Sample response:
+            
+                 {
+                     "r": 0,
+                     "g": 255,
+                     "b": 0,
+                     "a": 255,
+                     "isKnownColor": false,
+                     "isEmpty": false,
+                     "isNamedColor": false,
+                     "isSystemColor": false,
+                     "name": "ff00ff00"
+                 }
+            
+             </remarks>
+             <param name="color">Color: a HEX number</param>
+             <response code="200">Returns the color object.</response>
+             <response code="400">If any color string in the query parameters is invalid.</response>
+        </member>
+        <member name="M:Colors.API.Controllers.ColorsController.GetLuminance(System.String)">
+             <summary>
+                 Get the luminance of a color.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/colors/00FF00/luminance
+            
+             Sample response:
+            
+                 0.7152
+            
+             </remarks>
+             <param name="color">Color: a HEX number</param>
+             <response code="200">Returns the luminance value of a color.</response>
+             <response code="400">If any color string in the query parameters is invalid.</response>
+        </member>
+        <member name="M:Colors.API.Controllers.ColorsController.GetBrightness(System.String)">
+             <summary>
+                 Get the brightness of a color.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/colors/00FF00/brightness
+            
+             Sample response:
+            
+                 149.685
+            
+             </remarks>
+             <param name="color">Color: a HEX number</param>
+             <response code="200">Returns the brightness value of a color.</response>
+             <response code="400">If any color string in the query parameters is invalid.</response>
+        </member>
+        <member name="M:Colors.API.Controllers.ColorsController.GetContrastRatio(System.String,System.String)">
+             <summary>
+                 Computes the contrast ratio between two colors.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/colors/contrast-ratio
+                 {
+                    "fc": "00FF00",
+                    "bc": "FFFFFF"
+                 }
+            
+             Sample response:
+            
+                    {
+                        "color1": {
+                            "r": 0,
+                            "g": 255,
+                            "b": 0,
+                            "a": 255,
+                            "isKnownColor": false,
+                            "isEmpty": false,
+                            "isNamedColor": false,
+                            "isSystemColor": false,
+                            "name": "ff00ff00"
+                        },
+                        "color2": {
+                            "r": 255,
+                            "g": 255,
+                            "b": 255,
+                            "a": 255,
+                            "isKnownColor": false,
+                            "isEmpty": false,
+                            "isNamedColor": false,
+                            "isSystemColor": false,
+                            "name": "ffffffff"
+                        },
+                        "ratio": 1.372
+                    }
+            
+             </remarks>
+             <param name="fc">Foreground Color: a HEX number</param>
+             <param name="bc">Background Color: a HEX number</param>
+             <response code="200">Returns the ColorContrastRatio object</response>
+             <response code="400">If any color string in the query parameters is invalid.</response>
+        </member>
+        <member name="M:Colors.API.Controllers.ColorsController.GetBrightnessDifference(System.String,System.String)">
+             <summary>
+                 Computes the Brightness Difference between two colors.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/colors/brightness-difference
+                 {
+                    "fc": "00FF00",
+                    "bc": "FFFFFF"
+                 }
+            
+             Sample response:
+            
+                    {
+                        "color1": {
+                            "r": 0,
+                            "g": 255,
+                            "b": 0,
+                            "a": 255,
+                            "isKnownColor": false,
+                            "isEmpty": false,
+                            "isNamedColor": false,
+                            "isSystemColor": false,
+                            "name": "ff00ff00"
+                        },
+                        "color2": {
+                            "r": 255,
+                            "g": 255,
+                            "b": 255,
+                            "a": 255,
+                            "isKnownColor": false,
+                            "isEmpty": false,
+                            "isNamedColor": false,
+                            "isSystemColor": false,
+                            "name": "ffffffff"
+                        },
+                        "diff": 105.315,
+                        "acceptable": false
+                    }
+            
+             </remarks>
+             <param name="fc">Foreground Color: a HEX number</param>
+             <param name="bc">Background Color: a HEX number</param>
+             <response code="200">Returns the ColorBrightnessDifference object</response>
+             <response code="400">If any color string in the query parameters is invalid.</response>
+        </member>
+        <member name="M:Colors.API.Controllers.ColorsController.GetColorDifference(System.String,System.String)">
+             <summary>
+                 Computes the Color Difference between two colors.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/colors/color-difference
+                 {
+                    "fc": "00FF00",
+                    "bc": "FFFFFF"
+                 }
+            
+             Sample response:
+            
+                    {
+                        "color1": {
+                            "r": 0,
+                            "g": 255,
+                            "b": 0,
+                            "a": 255,
+                            "isKnownColor": false,
+                            "isEmpty": false,
+                            "isNamedColor": false,
+                            "isSystemColor": false,
+                            "name": "ff00ff00"
+                        },
+                        "color2": {
+                            "r": 255,
+                            "g": 255,
+                            "b": 255,
+                            "a": 255,
+                            "isKnownColor": false,
+                            "isEmpty": false,
+                            "isNamedColor": false,
+                            "isSystemColor": false,
+                            "name": "ffffffff"
+                        },
+                        "diff": 510,
+                        "acceptable": true
+                    }
+            
+             </remarks>
+             <param name="fc">Foreground Color: a HEX number</param>
+             <param name="bc">Background Color: a HEX number</param>
+             <response code="200">Returns the ColorBrightnessDifference object</response>
+             <response code="400">If any color string in the query parameters is invalid.</response>
+        </member>
+    </members>
+</doc>
